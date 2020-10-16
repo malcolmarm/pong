@@ -25,10 +25,19 @@ int lscore, rscore;
 color button1 = #FFAFC3;
 color button2 = #FF4876;
 color buttonStroke = #FF0342;
-color textFill;
+color textFill = #FF00FF;
 color paddle1 = #CE55FF;
 color paddle2 = #5572FF;
 color ballFill = #FF5558;
+
+//ball movement variables
+float ballVX;
+float ballVY;
+
+//reset variables
+int delayTick;
+boolean ldelay;
+boolean rdelay;
 
 
 void setup() {
@@ -51,6 +60,15 @@ void setup() {
 
   //initialize keyboard
   wkey= skey= upkey= downkey= false;
+  
+  //initializing ball movement
+  ballVX = 5;
+  ballVY = 0;
+  
+  //initializing reset
+  delayTick = 0;
+  ldelay = false;
+  rdelay = false;
 }
 
 void draw() {
