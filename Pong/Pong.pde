@@ -1,8 +1,19 @@
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+
 //Malcolm Armstrong
 //1-1B
 //Oct 15th, 2020
 
 //Pong
+
+//minim variables
+Minim minim;
+AudioPlayer victory, rhit, lhit, wallhit, intro, score;
 
 //mode framework
 int mode;
@@ -38,6 +49,12 @@ float ballVY;
 int delayTick;
 boolean ldelay;
 boolean rdelay;
+int winner;
+final int PURPLE = 1;
+final int BLUE = 2;
+
+//ai variables
+boolean AI;
 
 
 void setup() {
@@ -69,6 +86,10 @@ void setup() {
   delayTick = 0;
   ldelay = false;
   rdelay = false;
+  
+  //initializing sounds
+  minim = new Minim(this);
+  victory = minim.loadFile("victory.mp3");
 }
 
 void draw() {

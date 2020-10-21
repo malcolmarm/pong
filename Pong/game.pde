@@ -88,6 +88,16 @@ void game() {
       delayTick = 0;
     }
   }
+
+  //Gameover Detection
+  if (lscore >= 3) {
+    winner = PURPLE;
+    mode = GAMEOVER;
+  }
+  if (rscore >= 3) {
+    winner = BLUE;
+    mode = GAMEOVER;
+  }
 }
 
 void gameClicks() {
