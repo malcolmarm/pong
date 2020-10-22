@@ -22,8 +22,16 @@ void game() {
   //Paddle Control
   if (wkey == true) leftY = leftY - 8;
   if (skey == true) leftY = leftY + 8;
-  if (upkey == true) rightY = rightY - 8;
-  if (downkey == true) rightY = rightY + 8;
+  if (AI == false) {
+    if (upkey == true) rightY = rightY - 8;
+    if (downkey == true) rightY = rightY + 8;
+  } else if (AI == true) {
+    if (ballX > width/2) {
+      if (ballY > rightY) rightY = rightY + 8;
+      if (ballY < rightY) rightY = rightY - 8;
+    }
+  }
+
   if (leftY < 0 + leftD/2) leftY = 0 + leftD/2;
   if (leftY > height - leftD/2) leftY = height - leftD/2;
   if (rightY < 0 + rightD/2) rightY = 0 + rightD/2;
@@ -101,4 +109,5 @@ void game() {
 }
 
 void gameClicks() {
+  mode = PAUSE;
 }

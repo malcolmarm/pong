@@ -89,7 +89,7 @@ void setup() {
   
   //initializing sounds
   minim = new Minim(this);
-  victory = minim.loadFile("victory.mp3");
+  victory = minim.loadFile("victory.wav");
 }
 
 void draw() {
