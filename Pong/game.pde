@@ -33,8 +33,11 @@ void game() {
   }
 
   if (leftY < 0 + leftD/2) leftY = 0 + leftD/2;
+
   if (leftY > height - leftD/2) leftY = height - leftD/2;
+
   if (rightY < 0 + rightD/2) rightY = 0 + rightD/2;
+
   if (rightY > height - rightD/2) rightY = height - rightD/2;
 
   //Ball
@@ -47,21 +50,31 @@ void game() {
   if (ballY > height - ballD/2) {
     ballY = height - ballD/2;
     ballVY = ballVY * -1;
+    wallhit.rewind();
+    wallhit.play();
   }
   if (ballY < 0 + ballD/2) {
     ballY = 0 + ballD/2;
     ballVY = ballVY *-1;
+    wallhit.rewind();
+    wallhit.play();
   }
   if (dist(ballX, ballY, leftX, leftY) <= ballD/2 + leftD/2) {
     ballVX = (ballX - leftX)/10;
     ballVY = (ballY - leftY)/10;
+    lhit.rewind();
+    lhit.play();
   }
   if (dist(ballX, ballY, rightX, rightY) <= ballD/2 + rightD/2) { 
     ballVX = (ballX - rightX)/10;
     ballVY = (ballY - rightY)/10;
+    rhit.rewind();
+    rhit.play();
   }
   if (ballX >= width) {
     lscore ++;
+    score.rewind();
+    score.play();
     ballX = 400;
     ballY = 400;
     ballVX = 0;
@@ -72,6 +85,8 @@ void game() {
   }
   if (ballX <= 0) {
     rscore ++;
+    score.rewind();
+    score.play();
     ballX = 400;
     ballY = 400;
     ballVX = 0;
@@ -101,10 +116,12 @@ void game() {
   if (lscore >= 3) {
     winner = PURPLE;
     mode = GAMEOVER;
+    score.pause();
   }
   if (rscore >= 3) {
     winner = BLUE;
     mode = GAMEOVER;
+    score.pause();
   }
 }
 

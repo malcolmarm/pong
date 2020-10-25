@@ -77,19 +77,24 @@ void setup() {
 
   //initialize keyboard
   wkey= skey= upkey= downkey= false;
-  
+
   //initializing ball movement
   ballVX = 5;
   ballVY = 0;
-  
+
   //initializing reset
   delayTick = 0;
   ldelay = false;
   rdelay = false;
-  
+
   //initializing sounds
   minim = new Minim(this);
   victory = minim.loadFile("victory.wav");
+  intro = minim.loadFile("intro.wav");
+  wallhit = minim.loadFile("wall.wav");
+  rhit = minim.loadFile("rightpaddle.wav");
+  lhit = minim.loadFile("leftpaddle.wav");
+  score = minim.loadFile("score.wav");
 }
 
 void draw() {
